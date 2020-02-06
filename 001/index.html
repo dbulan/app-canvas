@@ -29,14 +29,15 @@ image.onload = function() {
   context.fillStyle = 'grey';
   context.fillRect(0, 0, canvas.width, canvas.height);
   
-  let sourceX = 300,    // otkuda virezaem X
-    sourceY = 100,      // otkuda virezaem Y
-    sourceWidth = 100,  // skolko virezaem WIDTH
-    sourceHeight = 100, // skolko virezaem HEIGHT
-    destX = 0,        // otkuda na canvase X
-    destY = 0,        // otkuda na canvase Y
-    destWidth = 100,  // na skolko rastjanut WIDTH
-    destHeight = 100; // na skolko rastjanut HEIGHT
+  let sourceX = 300,      // otkuda virezaem X
+      sourceY = 100,      // otkuda virezaem Y
+      sourceWidth = 100,  // skolko virezaem WIDTH
+      sourceHeight = 100, // skolko virezaem HEIGHT
+      destX = 0,        // otkuda na canvase X
+      destY = 0,        // otkuda na canvase Y
+      destWidth = 100,  // na skolko rastjanut WIDTH
+      destHeight = 100; // na skolko rastjanut HEIGHT
+      
   context.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
 }
 </script>
