@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas 003</title>
+</head>
+
+<body>
+
+<canvas id="myCanvas" width="1500" height="512"></canvas>
+
+<script>
+let image = new Image();
+image.src = 'sheet.png';
+
+let counter = 0,
+    frame_width = 512,
+    frame_height = 512;
+
+image.onload = function() {
+  let canvas = document.getElementById('myCanvas');
+  let context = canvas.getContext('2d');
+
+  window.requestAnimationFrame(animate);
+ 
+  function animate() {
+    let frame = Math.floor(counter % 6); // counter % kol-vo spritov
+    
+    context.fillStyle = '#000';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    
+    context.drawImage(image, frame * frame_width, 0, frame_width, frame_height, counter * 25, 0, frame_width, frame_height);
+    counter = counter + .25; // skorost
+
+    if (counter > 50) counter = 0; // movement from left to right
+    
+    window.requestAnimationFrame(animate);
+  }
+}
+</script>
+
+</body>
+
+</html>
