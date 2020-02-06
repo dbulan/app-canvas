@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas 001</title>
+</head>
+
+<body>
+
+<img id="source" src="source.jpg">
+<canvas id="myCanvas" width="450" height="350"></canvas>
+
+<hr>
+
+<img id="source2" src="source2.jpg">
+
+<hr>
+
+<img id="source3" src="source3.png">
+
+<script>
+let image = document.getElementById('source');
+
+image.onload = function() {
+  let canvas = document.getElementById('myCanvas');
+  let context = canvas.getContext('2d');
+
+  context.fillStyle = 'grey';
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  
+  let sourceX = 300,    // otkuda virezaem X
+    sourceY = 100,      // otkuda virezaem Y
+    sourceWidth = 100,  // skolko virezaem WIDTH
+    sourceHeight = 100, // skolko virezaem HEIGHT
+    destX = 0,        // otkuda na canvase X
+    destY = 0,        // otkuda na canvase Y
+    destWidth = 100,  // na skolko rastjanut WIDTH
+    destHeight = 100; // na skolko rastjanut HEIGHT
+  context.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+}
+</script>
+
+</body>
+
+</html>
