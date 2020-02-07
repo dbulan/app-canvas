@@ -8,15 +8,18 @@
 
 <body>
 
-<canvas id="myCanvas" width="1500" height="512"></canvas>
+<canvas id="myCanvas" width="1000" height="100" style="border:3px solid darkred"></canvas>
 
 <script>
 let image = new Image();
 image.src = 'sheet.png';
 
 let counter = 0,
-    frame_width = 512,
-    frame_height = 512;
+    frame_width = 512,  // realnij WIDTH sprita
+    frame_height = 512, // realnij HEIGHT sprita
+    
+    fireball_width = 100,   // resize WIDTH sprita
+    fireball_height = 100;  // resize HEIGHT sprita
 
 image.onload = function() {
   let canvas = document.getElementById('myCanvas');
@@ -30,10 +33,10 @@ image.onload = function() {
     context.fillStyle = '#000';
     context.fillRect(0, 0, canvas.width, canvas.height);
     
-    context.drawImage(image, frame * frame_width, 0, frame_width, frame_height, counter * 25, 0, frame_width, frame_height);
-    counter = counter + .25; // skorost
+    context.drawImage(image, frame * frame_width, 0, frame_width, frame_height, counter * 20, 0, fireball_width, fireball_height);
+    counter = counter + .20; // skorost
 
-    if (counter > 50) counter = 0; // movement from left to right
+    if (counter > 50) counter = 0; // movement from left to right // counter > 50 * 20 == canvas width 1000
     
     window.requestAnimationFrame(animate);
   }
